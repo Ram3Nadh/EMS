@@ -42,7 +42,6 @@ public class HomeController {
 
     @PostMapping("/saveEmp")
     public String saveEmp(@ModelAttribute Employee emp, HttpSession session) {
-        // Ensure the department field is being set
         Employee newEmp = empService.saveEmp(emp);
 
         if (newEmp != null) {
@@ -56,7 +55,6 @@ public class HomeController {
 
     @PostMapping("/updateEmpDtls")
     public String updateEmp(@ModelAttribute Employee emp, HttpSession session) {
-        // Ensure the department field is being updated correctly
         Employee updateEmp = empService.saveEmp(emp);
 
         if (updateEmp != null) {
