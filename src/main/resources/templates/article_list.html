@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Article List</title>
+</head>
+<body>
+    <h1>Article List</h1>
+    <a href="/addArticle">Add New Article</a>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Category</th>
+                <th>Author</th>
+                <th>Title</th>
+                <th>Content</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="article : ${articleList}">
+                <td th:text="${article.id}"></td>
+                <td th:text="${article.articleCategory}"></td>
+                <td th:text="${article.author}"></td>
+                <td th:text="${article.title}"></td>
+                <td th:text="${article.content}"></td>
+                <td>
+                    <a th:href="@{/editArticle/{id}(id=${article.id})}">Edit</a>
+                    <a th:href="@{/deleteArticle/{id}(id=${article.id})}">Delete</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
